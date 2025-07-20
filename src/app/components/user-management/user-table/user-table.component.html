@@ -1,0 +1,40 @@
+<table class="user-table">
+  <thead>
+    <tr>
+      @for (header of tableHeaders; track header) {
+        <th>{{ header | titlecase }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of pagedUsers; track user.id) {
+      <tr>
+        @for (key of tableHeaders; track key) {
+          <td>
+            @if (key === 'id') {
+              <div (click)="goToDetails(user.id)" class="user-table__clickable" style="cursor:pointer;">
+                {{ user[key] }}
+              </div>
+            } @else {
+              <input
+                [(ngModel)]="user[key]"
+                (click)="$event.stopPropagation()"
+                class="editable-cell"
+              />
+            }
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>
+
+<div class="pagination">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+    Prev
+  </button>
+  <span>Page {{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+    Next
+  </button>
+</div>
