@@ -1,0 +1,18 @@
+<table *ngIf="user" class="user-table user-detail-table">
+<nav class="user-table__breadcrumb">
+  <a routerLink="/user-management" class="user-table__breadcrumb__breadcrumb-link">Users Table</a>
+  <span class="user-table__breadcrumb__separator">›</span>
+  <span class="user-table__breadcrumb__current">User Details</span>
+</nav>
+  <tbody>
+    <tr *ngFor="let key of orderedKeys">
+      <th>{{ key | titlecase }}</th>
+      <td [class.clickable]="key === 'id'">{{ user[key] }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Optional fallback -->
+<div *ngIf="!user">
+  <p>Loading user data...</p>
+</div>
