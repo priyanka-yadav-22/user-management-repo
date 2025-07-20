@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-table-app": {
+    "user-management-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -65,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-table-app:build:production"
+              "buildTarget": "user-management-app:build:production"
             },
             "development": {
-              "buildTarget": "angular-table-app:build:development"
+              "buildTarget": "user-management-app:build:development"
             }
           },
           "defaultConfiguration": "development"

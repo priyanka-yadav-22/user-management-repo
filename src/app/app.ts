@@ -8,5 +8,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-table-app');
+  protected readonly title = signal('user-management-app');
 }
